@@ -44,10 +44,12 @@ def get_item_name(row):
 
 def get_item_price(row):
   item_price = row.xpath("./descendant::div[contains(@class,'showcasePrice')]/span/text()")
+  item_price = str(item_price).replace('$','')
   return item_price
 
 def get_item_specs(row):
   item_specs = row.xpath("./descendant::span[contains(@class,'specs')]/text()")
+  item_specs = str(item_specs).replace("Specs: ","")
   return item_specs
 
 def get_deal(row):
